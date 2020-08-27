@@ -1,0 +1,245 @@
+# This sample will help to understand the code
+# command script run in Kibana Console
+GET alert_core_total_count*/_search
+{
+  "query": {
+    "range":{
+      "createdAt":{
+        "gte":1556359200000,
+        "lt": 1556445600000
+      }
+    }
+  },
+  "size": 0,
+  "aggs":{
+    "result":{
+      "date_histogram": {
+        "field":"createdAt",
+        "interval":"hour",
+        "format":"yyyy-MM-dd HH:mm:ss"
+      },
+      "aggs":{
+        "stat_value":{
+          "avg":{"field": "info.value"}
+        }
+      }
+    }
+  }
+}
+# "stat_value" is keyword of ES search
+# "avg" is keyword of ES search for aggregations type
+
+# result
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1440,
+    "max_score": 0,
+    "hits": []
+  },
+  "aggregations": {
+    "result": {
+      "buckets": [
+        {
+          "key_as_string": "2019-04-27 10:00:00",
+          "key": 1556359200000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 1724.85
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 11:00:00",
+          "key": 1556362800000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 1783.7
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 12:00:00",
+          "key": 1556366400000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 1630.8166666666666
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 13:00:00",
+          "key": 1556370000000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 1358.8666666666666
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 14:00:00",
+          "key": 1556373600000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 1096.7666666666667
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 15:00:00",
+          "key": 1556377200000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 680.9333333333333
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 16:00:00",
+          "key": 1556380800000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 345.05
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 17:00:00",
+          "key": 1556384400000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 194.66666666666666
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 18:00:00",
+          "key": 1556388000000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 163.75
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 19:00:00",
+          "key": 1556391600000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 105.31666666666666
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 20:00:00",
+          "key": 1556395200000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 152.5
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 21:00:00",
+          "key": 1556398800000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 140.6
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 22:00:00",
+          "key": 1556402400000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 406.06666666666666
+          }
+        },
+        {
+          "key_as_string": "2019-04-27 23:00:00",
+          "key": 1556406000000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 928.5166666666667
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 00:00:00",
+          "key": 1556409600000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 1721.5166666666667
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 01:00:00",
+          "key": 1556413200000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 2890.0666666666666
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 02:00:00",
+          "key": 1556416800000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 3272.4666666666667
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 03:00:00",
+          "key": 1556420400000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 3115.85
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 04:00:00",
+          "key": 1556424000000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 2569.133333333333
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 05:00:00",
+          "key": 1556427600000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 2271.133333333333
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 06:00:00",
+          "key": 1556431200000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 2721.55
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 07:00:00",
+          "key": 1556434800000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 3104.35
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 08:00:00",
+          "key": 1556438400000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 3115.616666666667
+          }
+        },
+        {
+          "key_as_string": "2019-04-28 09:00:00",
+          "key": 1556442000000,
+          "doc_count": 60,
+          "stat_value": {
+            "value": 2590.5833333333335
+          }
+        }
+      ]
+    }
+  }
+}
